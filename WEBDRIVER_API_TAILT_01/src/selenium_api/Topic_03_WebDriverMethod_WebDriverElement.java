@@ -2,6 +2,7 @@ package selenium_api;
 
 import org.testng.annotations.Test;
 
+
 import org.testng.annotations.BeforeTest;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -13,7 +14,7 @@ public class Topic_03_WebDriverMethod_WebDriverElement {
 	@BeforeTest
 	public void beforeTest() {
 		System.setProperty("webdriver.chrome.driver", "D:\\workspace\\TestGoogleSearch\\driver\\chromedriver.exe");
-		driver = new ChromeDriver();
+		driver = (WebDriver) new ChromeDriver();
 	}
 
 	@Test
