@@ -2,24 +2,24 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="12483" started-at="2018-07-09T10:32:21Z" finished-at="2018-07-09T10:32:33Z">
+  <suite name="Default suite" duration-ms="28521" started-at="2018-07-16T17:19:38Z" finished-at="2018-07-16T17:20:07Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="12483" started-at="2018-07-09T10:32:21Z" finished-at="2018-07-09T10:32:33Z">
-      <class name="selenium_api.Topic_02">
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:selenium_api.Topic_02@77f03bb1]" name="beforeMethod" is-config="true" duration-ms="2550" started-at="2018-07-09T17:32:21Z" finished-at="2018-07-09T17:32:23Z">
+    <test name="Default test" duration-ms="28521" started-at="2018-07-16T17:19:38Z" finished-at="2018-07-16T17:20:07Z">
+      <class name="webdriver_api.Topic_03_ElementsControl">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:webdriver_api.Topic_03_ElementsControl@73035e27]" name="beforeTest" is-config="true" duration-ms="2964" started-at="2018-07-17T00:19:38Z" finished-at="2018-07-17T00:19:41Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="test_03()[pri:0, instance:selenium_api.Topic_02@77f03bb1]" name="test_03" duration-ms="8991" started-at="2018-07-09T17:32:23Z" finished-at="2018-07-09T17:32:32Z">
+        </test-method> <!-- beforeTest -->
+        <test-method status="PASS" signature="test_02_workWithTextbox()[pri:0, instance:webdriver_api.Topic_03_ElementsControl@73035e27]" name="test_02_workWithTextbox" duration-ms="24380" started-at="2018-07-17T00:19:41Z" finished-at="2018-07-17T00:20:06Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- test_03 -->
-        <test-method status="PASS" signature="afterMethod()[pri:0, instance:selenium_api.Topic_02@77f03bb1]" name="afterMethod" is-config="true" duration-ms="933" started-at="2018-07-09T17:32:32Z" finished-at="2018-07-09T17:32:33Z">
+        </test-method> <!-- test_02_workWithTextbox -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:webdriver_api.Topic_03_ElementsControl@73035e27]" name="afterTest" is-config="true" duration-ms="1161" started-at="2018-07-17T00:20:06Z" finished-at="2018-07-17T00:20:07Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- afterMethod -->
-      </class> <!-- selenium_api.Topic_02 -->
+        </test-method> <!-- afterTest -->
+      </class> <!-- webdriver_api.Topic_03_ElementsControl -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
