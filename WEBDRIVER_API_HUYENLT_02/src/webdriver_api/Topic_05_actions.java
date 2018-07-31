@@ -1,7 +1,5 @@
 package webdriver_api;
 
-import java.awt.List;
-import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Alert;
@@ -9,14 +7,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-
-import com.thoughtworks.selenium.webdriven.ElementFinder;
 
 public class Topic_05_actions {
 	private static final String WEBDRIVER = "webdriver.chrome.driver";
@@ -120,7 +115,7 @@ public class Topic_05_actions {
 		actions.dragAndDrop(start, end).build().perform();
 		Assert.assertEquals(end.getText(), "Dropped!");
 	}
-	
+
 	@AfterMethod
 	public void after() {
 		driver.quit();
