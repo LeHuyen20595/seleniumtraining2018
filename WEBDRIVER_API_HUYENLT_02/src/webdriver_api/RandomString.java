@@ -14,7 +14,7 @@ public class RandomString {
 	 * "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
 	 */
 
-	private static final int RANDOM_STRING_LENGTH = 15;
+	private static final int RANDOM_STRING_LENGTH = 5;
 
 	public String generateRandomString() {
 		StringBuffer randStr = new StringBuffer();
