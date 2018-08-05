@@ -1,6 +1,9 @@
 package webdriver_api;
 
 import org.testng.annotations.Test;
+
+import commom.RandomString;
+
 import org.testng.annotations.BeforeMethod;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

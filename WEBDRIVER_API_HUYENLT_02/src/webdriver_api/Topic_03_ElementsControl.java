@@ -12,6 +12,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import commom.RandomString;
+
 public class Topic_03_ElementsControl {
 	private static final String WEBDRIVER = "webdriver.chrome.driver";
 	private static final String CHROMEDRIVER = ".\\drivers\\chromedriver.exe";
