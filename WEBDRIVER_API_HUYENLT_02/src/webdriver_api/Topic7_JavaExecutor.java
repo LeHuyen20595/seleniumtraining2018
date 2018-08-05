@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 
 public class Topic7_JavaExecutor {
 	private static final String WEBDRIVER = "webdriver.chrome.driver";
-	private static final String CHROMEDRIVER = ".\\drivers\\chromedriver.exe";
+	private static final String IEDRIVER = ".\\drivers\\IEDriverServer.exe";
 	private static final String URL_01 = "http://live.guru99.com/";
 	private static final String URL_02 = "https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_input_disabled";
 	private WebDriver driver;
@@ -21,69 +21,83 @@ public class Topic7_JavaExecutor {
 	
 	@BeforeTest
 	public void beforeTest() {
-		System.setProperty(WEBDRIVER, CHROMEDRIVER);
+		System.setProperty(WEBDRIVER, IEDRIVER);
 		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		js = (JavascriptExecutor) driver;
 	}
 
-//	@Test
-//	public void test_01() {
-//		driver.get(URL_01);
-//		
-//		// Get and verify domain
-//		String realDomain = getDomainByJS();
-//		Assert.assertEquals(realDomain, "live.guru99.com");
-//		
-//		// Get and verify page link
-//		String realURL = getCurrentURLByJS();
-//		Assert.assertEquals(realURL, "http://live.guru99.com/");
-//		
-//		// Open Mobile Page
-//		clickButtonByJS(driver.findElement(By.xpath("//div[@id='header-nav']//a")));
-//		
-//		// Add Samsung galaxy to card
-//		clickButtonByJS(driver.findElement(By.xpath("//li[@class='item last']//a[@title='Samsung Galaxy']//following-sibling::div//button")));
-//		
-//		// verify text "Samsung Galaxy was added to your shopping cart." by testNG
-//		String msAddSuccess = driver.findElement(By.xpath("//li[@class='success-msg']//span")).getText();
-//		Assert.assertEquals(msAddSuccess, "Samsung Galaxy was added to your shopping cart.");
-//		
-//		// Verify text by js
-//		if(verifyByJS("Samsung Galaxy was added to your shopping cart.") == true) {
-//			System.out.println("Samsung Galaxy was added to your shopping cart.");
-//		}else {
-//			System.out.println("Add product failed");
-//		}
-//		
-//		// Click on Privacy Policy 
-//		clickButtonByJS(driver.findElement(By.xpath("//li//a[text()='Privacy Policy']")));
-//		
-//		// Verify title page : Privacy Policy
-//		String realTitle = getTitleByJS();
-//		Assert.assertEquals(realTitle, "Privacy Policy");
-//		
-//		// Croll to the bottom of page
-//		scrollToTheBottomOfPage();
-//		
-//		// step 09 verify with just one xpath
-//		
-//		// navigate to "http://demo.guru99.com/v4/"
-//		navigateByJS();
-//		
-//		// verify domain 
-//		Assert.assertEquals(getDomainByJS(), "demo.guru99.com");
-//	}
-	
 	@Test
+	public void test_01() throws InterruptedException {
+		// navigate to the page
+		driver.get(URL_01);
+		
+		// Get and verify domain
+		String realDomain = getDomainByJS();
+		Assert.assertEquals(realDomain, "live.guru99.com");
+		
+		// Get and verify page link
+		String realURL = getCurrentURLByJS();
+		Assert.assertEquals(realURL, "http://live.guru99.com/");
+		
+		// Open Mobile Page
+		clickButtonByJS(driver.findElement(By.xpath("//div[@id='header-nav']//a")));
+		
+		// Add Samsung galaxy to card
+		clickButtonByJS(driver.findElement(By.xpath("//li[@class='item last']//a[@title='Samsung Galaxy']//following-sibling::div//button")));
+		
+		// verify text "Samsung Galaxy was added to your shopping cart." by testNG
+		String msAddSuccess = driver.findElement(By.xpath("//li[@class='success-msg']//span")).getText();
+		Assert.assertEquals(msAddSuccess, "Samsung Galaxy was added to your shopping cart.");
+		
+		// Verify text by js
+		if(verifyByJS("Samsung Galaxy was added to your shopping cart.") == true) {
+			System.out.println("Samsung Galaxy was added to your shopping cart.");
+		}else {
+			System.out.println("Add product failed");
+		}
+		
+		// Click on Privacy Policy 
+		clickButtonByJS(driver.findElement(By.xpath("//li//a[text()='Privacy Policy']")));
+		Thread.sleep(2000);
+		
+		// Verify title page : Privacy Policy
+		String realTitle = getTitleByJS();
+		Assert.assertEquals(realTitle, "Privacy Policy");
+		
+		// Croll to the bottom of page
+		scrollToTheBottomOfPage();
+		
+		// step 09 verify with just one xpath
+		WebElement wishlist = driver.findElement(By.xpath("//table//th[text()='WISHLIST_CNT']/following-sibling::td"));
+		Assert.assertEquals(wishlist.getText(), "The number of items in your Wishlist.");
+		
+		// navigate to "http://demo.guru99.com/v4/"
+		navigateByJS();
+		
+		// verify domain 
+		Assert.assertEquals(getDomainByJS(), "live.guru99.com");
+	}
+	
+	//@Test
 	public void test_02_removeAttribute() {
+		//navigate to the page
 		driver.get(URL_02);
 		
-		driver.switchTo().frame("iframeResult");
+		// switch to iframe
+		driver.switchTo().frame(driver.findElement(By.id("iframeResult")));
+		
+		// remove disabled attribute
 		removeAttribute(driver.findElement(By.name("lname")));
+		
+		// enter key to lastname textbox
 		driver.findElement(By.name("lname")).sendKeys("Huyen");
+		
+		//click on button submit
 		driver.findElement(By.xpath("//input[@type='submit']")).click();
+		
+		// verify text by JS
 		if(verifyByJS("fname=&lname=Huyen") == true) {
 			System.out.println("Test 02 passed");
 		}else {
@@ -148,6 +162,6 @@ public class Topic7_JavaExecutor {
 	}
 	
 	public void removeAttribute(WebElement element) {
-		js.executeScript("arguments[0].removeAttribute('disable');", element);
+		js.executeScript("arguments[0].removeAttribute('disabled');", element);
 	}
 }
