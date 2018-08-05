@@ -34,20 +34,20 @@ public class Topic_04_ButtonCheckboxRadioAlert {
 		je.executeScript("arguments[0].click()", element);
 	}
 
-//	@Test
-//	public void test_01() throws InterruptedException {
-//		driver.get(URL_01);
-//		driver.findElement(By.linkText("MY ACCOUNT")).click();
-//		Thread.sleep(2000);
-//		String realUrl = driver.getCurrentUrl();
-//		String expectUrl = "http://live.guru99.com/index.php/customer/account/login/";
-//		Assert.assertEquals(expectUrl, realUrl);
-//		Thread.sleep(2000);
-//		clickByJavaScript(driver.findElement(By.xpath(".//a[@title='Create an Account']")));
-//		realUrl = driver.getCurrentUrl();
-//		expectUrl = "http://live.guru99.com/index.php/customer/account/create/";
-//		Assert.assertEquals(expectUrl, realUrl);
-//	}
+	@Test
+	public void test_01() throws InterruptedException {
+		driver.get(URL_01);
+		driver.findElement(By.linkText("MY ACCOUNT")).click();
+		Thread.sleep(2000);
+		String realUrl = driver.getCurrentUrl();
+		String expectUrl = "http://live.guru99.com/index.php/customer/account/login/";
+		Assert.assertEquals(expectUrl, realUrl);
+		Thread.sleep(2000);
+		clickByJavaScript(driver.findElement(By.xpath(".//a[@title='Create an Account']")));
+		realUrl = driver.getCurrentUrl();
+		expectUrl = "http://live.guru99.com/index.php/customer/account/create/";
+		Assert.assertEquals(expectUrl, realUrl);
+	}
 
 	@Test
 	public void test_02() {
@@ -84,7 +84,6 @@ public class Topic_04_ButtonCheckboxRadioAlert {
 		String textOnAlert = alert.getText();
 		Assert.assertEquals(textOnAlert, "I am a JS Alert");
 		alert.accept();
-		alert.dismiss();
 		Assert.assertEquals(driver.findElement(By.id("result")), "You clicked an alert successfully ");
 
 	}
